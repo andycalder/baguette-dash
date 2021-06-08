@@ -1,2 +1,12 @@
 <h1>Meals#show</h1>
-<p>Find me in app/views/meals/show.html.erb</p>
+
+
+
+<h1> <%= @meal.name %> </h1>
+<h2> <%= @meal.description %> </h2>
+<p> <%= @meal.price %> $</p>
+
+
+<%= link_to "BACK", meals_path %>
+
+
