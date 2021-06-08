@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
     @order.meal = @meal
     @order.user = current_user
     if @order.save
-      redirect_to dashboard_path(@order), notice: 'Your order has been created'
+      redirect_to dashboard_path, notice: 'Your order has been created'
     else
       render 'meals/show'
     end

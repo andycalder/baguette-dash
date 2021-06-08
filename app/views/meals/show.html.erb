@@ -1,6 +1,20 @@
-<h1>Meals#show</h1>
-<p>Find me in app/views/meals/show.html.erb</p>
-<% @meal = Meal.first %>
-<h1><%= Meal.first.name %></h1>
+
+<div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+  <%= @meal.name %>
+</div>
+
+
+
+
+
+<h1> <%= @meal.name %> </h1>
+<h2> <%= @meal.description %> </h2>
+<p> <%= @meal.price %> $</p>
+
 
 <%= link_to 'Order Now', meal_orders_path(@meal), method: :post %>
+
+
+<%= link_to "BACK TO THE MENU", meals_path %>
+
+
