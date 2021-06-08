@@ -12,17 +12,19 @@
 
 
 
-<%= link_to meals_path do %>
+
 
 <div class="container cards">
 <% @meals.each do |meal| %>
+<%= link_to meal_path(meal) do %>
 <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <h2><%= meal.name %></h2>
 </div>
 <% end %>
+<% end %>
 </div>
 
 
-<% end %>
+
 
 
