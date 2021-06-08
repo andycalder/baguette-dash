@@ -24,4 +24,17 @@
     <p><%= meal.price %></p>
     <% end %>
   </div>
+
+  <div class="col-12">
+    <h2>All of pending orders</h2>
+    <% @orders.each do |order| %>
+      <% if order.status == 'pending' %>
+        <p><%= order.name %></p>
+        <p><%= order.price %></p>
+        <%= link_to "See details",  %>
+      <% else %>
+        <p>There is no pending order</p>
+      <% end %>
+    <% end%>
+  </div>
 </div>
