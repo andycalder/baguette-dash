@@ -1,2 +1,6 @@
 <h1>Meals#show</h1>
 <p>Find me in app/views/meals/show.html.erb</p>
+<% @meal = Meal.first %>
+<h1><%= Meal.first.name %></h1>
+
+<%= link_to 'Order Now', meal_orders_path(@meal), method: :post %>
