@@ -1,10 +1,4 @@
 Rails.application.routes.draw do
-  get 'dashboard/show'
-  get 'orders/new'
-  get 'meals/index'
-  get 'meals/show'
-  get 'meals/new'
-  get 'meals/edit'
   devise_for :users
   root to: 'pages#home'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
