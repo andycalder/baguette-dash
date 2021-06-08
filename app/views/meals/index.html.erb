@@ -9,22 +9,14 @@
 </div> -->
 
 
-
-
-
-
-
-<div class="container cards">
-<% @meals.each do |meal| %>
-<%= link_to meal_path(meal) do %>
-<div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-  <h2><%= meal.name %></h2>
+<div class="container mt-2">
+  <div class="row">
+    <%@meals.each do |meal|  %>
+      <div class="col-md-6 col-12 col-lg-4 my-2">
+        <div class="card-category" style="background-image: url(<%= meal.photo.attached? ? cl_image_path(meal.photo.key) : image_path('baguettes') %>)">
+        <%= link_to meal.name, meal_path(meal), class: "card-category" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
 </div>
-<% end %>
-<% end %>
-</div>
-
-
-
-
-
