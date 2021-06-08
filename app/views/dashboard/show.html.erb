@@ -2,40 +2,44 @@
 
 <div class="row">
   <div class="col-12">
-    <h1>All of the orders</h1>
-    <% @orders.each do |order| %>
-    <p><%= order.price %></p>
-    <p><%= order.status %></p>
-    <% if !order.user.nil? && !order.meal.nil? %>
-    <% user = order.user %>
-    <p><%= user.first_name %> <%= user.last_name %></p>
-    <% meal = order.meal%>
-    <ul>
-      <li><%= meal.name %></li>
-    </ul>
-    <% end %>
-    <% end %>
-  </div>
-  <div class="col-12">
-    <h2>All of created meals</h2>
-    <% @meals.each do |meal| %>
-    <p><%= meal.name %></p>
-    <p><%= meal.description %></p>
-    <p><%= meal.price %></p>
-    <% end %>
-  </div>
-
-  <div class="col-12">
-    <h2>All of pending orders</h2>
-    <% @orders.each do |order| %>
-      <% if order.status == 'pending' %>
+    <div class="row">
+      <h1>All of the orders</h1>
+      <% @orders.each do |order| %>
+      <div class="col-12 col-md-4 ">
         <p><%= order.price %></p>
+        <p><%= order.status %></p>
+        <% if !order.user.nil? && !order.meal.nil? %>
         <% user = order.user %>
         <p><%= user.first_name %> <%= user.last_name %></p>
-        <%= link_to "See details", edit_order_path(order)  %>
-      <% else %>
-        <p>There is no pending order</p>
+        <% meal = order.meal%>
+        <ul>
+          <li><%= meal.name %></li>
+        </ul>
+        <% end %>
+      </div>
       <% end %>
-    <% end%>
+    </div>
+
+    <div class="col-12">
+      <h2>All of created meals</h2>
+      <% @meals.each do |meal| %>
+      <p><%= meal.name %></p>
+      <p><%= meal.description %></p>
+      <p><%= meal.price %></p>
+      <% end %>
+    </div>
+
+    <div class="col-12">
+      <h2>All of pending orders</h2>
+      <% @orders.each do |order| %>
+      <% if order.status.lowcase == 'pending' %>
+      <p><%= order.price %></p>
+      <% user = order.user %>
+      <p><%= user.first_name %> <%= user.last_name %></p>
+      <%= link_to "See details", edit_order_path(order)  %>
+      <% else %>
+      <p>There is no pending order</p>
+      <% end %>
+      <% end%>
+    </div>
   </div>
-</div>
