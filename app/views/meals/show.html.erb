@@ -1,3 +1,4 @@
+
 <div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
   <%= @meal.name %>
 </div>
@@ -11,8 +12,9 @@
 <p> <%= @meal.price %> $</p>
 
 
-<%= link_to "ORDER THIS MEAL", meals_path %>
+<%= link_to 'Order Now', meal_orders_path(@meal), method: :post %>
 
 
 <%= link_to "BACK TO THE MENU", meals_path %>
+
 

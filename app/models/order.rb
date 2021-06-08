@@ -6,5 +6,5 @@ class Order < ApplicationRecord
   validates :meal, presence: true
   validates :price, presence: true, numericality: true
   validates :status, presence: true
-  validates :status, inclusion: { in: ['pending', 'delivered', 'cancelled'] }
+  validates :status, inclusion: { in: ['Pending', 'Delivered', 'Cancelled'] }
 end
