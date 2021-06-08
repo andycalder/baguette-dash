@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :meals do
     resources :orders, only: [:new, :create]
   end
-  resources :orders, only: [:edit]
+  resources :orders, only: [:update, :edit]
   get '/dashboard', to: 'dashboard#show'
 end

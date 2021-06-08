@@ -29,9 +29,10 @@
     <h2>All of pending orders</h2>
     <% @orders.each do |order| %>
       <% if order.status == 'pending' %>
-        <p><%= order.name %></p>
         <p><%= order.price %></p>
-        <%= link_to "See details",  %>
+        <% user = order.user %>
+        <p><%= user.first_name %> <%= user.last_name %></p>
+        <%= link_to "See details", edit_order_path(order)  %>
       <% else %>
         <p>There is no pending order</p>
       <% end %>
