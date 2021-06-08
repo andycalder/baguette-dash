@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'dashboard/show'
   get 'orders/new'
   get 'meals/index'
   get 'meals/show'
