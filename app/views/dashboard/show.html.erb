@@ -1,2 +1,46 @@
 <h1>Dashboard#show</h1>
-<p>Find me in app/views/dashboard/show.html.erb</p>
+
+<div class="row">
+  <div class="col-12">
+    <div class="row">
+      <h1>All of the orders</h1>
+      <% @orders.each do |order| %>
+      <div class="col-12 col-md-4 ">
+        <p><%= order.price %></p>
+        <p><%= order.status %></p>
+        <% if !order.user.nil? && !order.meal.nil? %>
+        <% user = order.user %>
+        <p><%= user.first_name %> <%= user.last_name %></p>
+        <% meal = order.meal%>
+        <ul>
+          <li><%= meal.name %></li>
+        </ul>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+
+    <div class="col-12">
+      <h2>All of created meals</h2><%= link_to "Create a new meal", new_meal_path , class: "d-inline-block"%>
+      <% @meals.each do |meal| %>
+      <p><%= meal.name %></p>
+      <p><%= meal.description %></p>
+      <p><%= meal.price %></p>
+      <%= link_to "edit meal", edit_meal_path(meal) %>
+      <% end %>
+    </div>
+
+    <div class="col-12">
+      <h2>All of pending orders</h2> 
+      <% @orders.each do |order| %>
+      <% if order.status.downcase == 'pending' %>
+      <p><%= order.price %></p>
+      <% user = order.user %>
+      <p><%= user.first_name %> <%= user.last_name %></p>
+      <%= link_to "See details", edit_order_path(order)  %>
+      <% else %>
+      <p>There is no pending order</p>
+      <% end %>
+      <% end%>
+    </div>
+  </div>
