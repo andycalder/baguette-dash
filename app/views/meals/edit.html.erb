@@ -1,2 +1,15 @@
-<h1>Meals#edit</h1>
-<p>Find me in app/views/meals/edit.html.erb</p>
+<h1>Edit meal details</h1>
+
+<%= simple_form_for(@meal) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, required: true, autofocus: true %>
+    <%= f.input :description, required: true %>
+    <%= f.input :price, required: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Save details" %>
+  </div>
+<% end %>

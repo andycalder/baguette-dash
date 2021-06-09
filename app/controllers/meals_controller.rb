@@ -1,12 +1,12 @@
 class MealsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
+  before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
     @meals = Meal.all
   end
 
   def show
-    @meal = Meal.find(params[:id])
   end
 
   def new
@@ -18,7 +18,7 @@ class MealsController < ApplicationController
     @meal.user = current_user
 
     if @meal.save
-      redirect_to meals_path
+      redirect_to dashboard_path
     else
       render :new
     end
@@ -27,9 +27,28 @@ class MealsController < ApplicationController
   def edit
   end
 
+  def update
+    @meal.update(meal_params)
+
+    if @meal.save
+      redirect_to dashboard_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @meal.destroy
+    redirect_to dashboard_path
+  end
+
   private
 
+  def set_meal
+    @meal = Meal.find(params[:id])
+  end
+
   def meal_params
-    params.require(:meal).permit(:name, :description, :price)
+    params.require(:meal).permit(:name, :description, :price, :photo)
   end
 end

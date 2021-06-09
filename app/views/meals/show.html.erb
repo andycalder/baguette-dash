@@ -1,5 +1,5 @@
 
-<div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+<div class="card-show" style="background-image: url(<%= @meal.photo.attached? ? cl_image_path(@meal.photo.key) : image_path('baguettes') %>)">
   <%= @meal.name %>
 </div>
 

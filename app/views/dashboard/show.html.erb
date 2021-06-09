@@ -26,12 +26,13 @@
       <p><%= meal.name %></p>
       <p><%= meal.description %></p>
       <p><%= meal.price %></p>
-      <%= link_to "edit meal", edit_meal_path(meal) %>
+      <%= link_to "Edit meal", edit_meal_path(meal) %>
+      <%= link_to "Remove meal", meal_path(meal), method: :delete %>
       <% end %>
     </div>
 
     <div class="col-12">
-      <h2>All of pending orders</h2> 
+      <h2>All of pending orders</h2>
       <% @orders.each do |order| %>
       <% if order.status.downcase == 'pending' %>
       <p><%= order.price %></p>
