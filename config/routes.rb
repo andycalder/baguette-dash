@@ -6,6 +6,5 @@ Rails.application.routes.draw do
     resources :orders, only: [:create]
   end
   resources :orders, only: [:update, :edit]
-  patch '/orders/:id', to: 'orders#update_status'
   get '/dashboard', to: 'dashboard#show'
 end
