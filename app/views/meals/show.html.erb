@@ -12,7 +12,7 @@
 <p> <%= @meal.price %> $</p>
 
 
-<%= link_to 'Order Now', meal_orders_path(@meal), method: :post %>
+<%= link_to 'Order Now', meal_orders_path(@meal), method: :post, data: { confirm: "Are you sure you want to order #{@meal.name}?" } %>
 
 
 <%= link_to "BACK TO THE MENU", meals_path %>
