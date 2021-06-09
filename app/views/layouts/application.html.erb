@@ -11,7 +11,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
-  <body style="background-color: #ffffff;" class="pb-5">
+  <body style="background-color: #ffffff;" class="m-0 p-0">
 
       <div class="container-fluid">
       <nav class="navbar">
@@ -32,6 +32,17 @@
       </nav>
     </div>
     <%= yield %>
+    <footer class="container-fluid">
+      <%= link_to meals_path do %>
+          <%= image_tag "france.png", class: "logo-footer" %>
+          <% end %>
+      <ul class="m-0 p-0">
+        <li><a href="#" target="_blank"><i class="fab fa-instagram social-media-footer"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-twitter social-media-footer"></i></a></li>
+        <li><a href="#" target="_blank"><i class="fab fa-linkedin-in social-media-footer"></i></a></li>
+      </ul>
+      <p>© Baguette Dash</p>
+    </footer>
   </body>
 
   <%= render 'devise/shared/flashes' %>

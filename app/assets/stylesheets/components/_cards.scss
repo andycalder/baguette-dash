@@ -43,6 +43,7 @@
   display: flex;
   justify-content: center;
   padding-top: 50px;
+  margin-bottom: 70px;
 }
 
 .card-category {
@@ -86,20 +87,23 @@
 
 
 .card-dashboard {
-  // background-color:#ececf0 !important;
+  background-color:#F8F9FA !important;
   margin-top: 30px;
-  padding-bottom: 30px;
-  border-bottom: 3px solid #ececf0;
-
+  margin-left: 25px;
+  padding: 20px 20px 30px 20px;
+  border: 1px solid #dee2e6 !important;
+  border-radius: 0.25rem;
 
 }
 
-// .card-dashboard {
-//   margin-left: 20px;
-// }
+// MEDIA QUERIES iPhone & other
 
-// .card-dashboard-1 {
-//   margin-left: -10px;
-// }
+
+@media(max-width: 541px) and (min-width: 320px) {
+  .card-dashboard {
+    margin: 0 auto 20px auto;
+
+  }
+}
 
 
