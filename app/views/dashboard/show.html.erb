@@ -42,6 +42,7 @@
           <%= link_to "See details", edit_order_path(order), class: "btn btn-primary"  %>
           <%= link_to "Mark as delivered", order_path(order.id, order:{ status: 'delivered' } ), method: :patch, data: { confirm: "Mark #{order.meal.name} as delivered to #{order.user.first_name}?" } %>
           <%= link_to "Mark as cancelled", order_path(order.id, order:{ status: 'cancelled' } ), method: :patch, data: { confirm: "Are you sure you want to cancel #{order.meal.name} to #{order.user.first_name}?" } %>
+        <% end%>
       <% end%>
     </div>
 
