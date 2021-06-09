@@ -1,4 +1,8 @@
 
+<div class="banner">
+      <h1>Order your favorites<br>
+        <span class="red">French Meals</span> in <span class="click">one click!</span></h1>
+    </div>
 
 <!-- <div class="container cards">
 <% @meals.each do |meal| %>
@@ -10,13 +14,14 @@
 
 
 <div class="container mt-2">
-  <div class="row">
+  <div class="row cards">
     <%@meals.each do |meal|  %>
       <div class="col-md-6 col-12 col-lg-4 my-2">
-        <div class="card-category" style="background-image: url(<%= meal.photo.attached? ? cl_image_path(meal.photo.key) : image_path('baguettes') %>)">
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= meal.photo.attached? ? cl_image_path(meal.photo.key) : image_path('baguettes') %>)">
         <%= link_to meal.name, meal_path(meal), class: "card-category" %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
