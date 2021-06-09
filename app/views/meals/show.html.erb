@@ -1,5 +1,5 @@
 
-<div class="card-show" style="background-image: url(<%= @meal.photo.attached? ? cl_image_path(@meal.photo.key) : image_path('baguettes') %>)">
+<div class="card-show" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= @meal.display_photo %>)">
   <%= @meal.name %>
 </div>
 

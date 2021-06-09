@@ -11,4 +11,8 @@ class Meal < ApplicationRecord
   # Add geocode to address
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
+
+  def display_photo
+    photo.attached? ? cl_image_path(photo.key) : ActionController::Base.helpers.image_path("baguettes.jpeg", digest: false)
+  end
 end
