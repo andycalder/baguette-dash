@@ -66,3 +66,5 @@ gem 'cloudinary', '~> 1.16.0'
 
 #geocoding gem
 gem 'geocoder'
+
+

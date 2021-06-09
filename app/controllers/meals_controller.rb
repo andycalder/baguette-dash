@@ -7,6 +7,7 @@ class MealsController < ApplicationController
   end
 
   def show
+    @marker = { lat: @meal.latitude, lng: @meal.longitude } if @meal.latitude && @meal.longitude
   end
 
   def new
