@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_06_08_074638) do
     t.bigint "user_id", null: false
     t.bigint "meal_id", null: false
     t.float "price"
-    t.string "status", default: "Pending"
+    t.string "status", default: "pending"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["meal_id"], name: "index_orders_on_meal_id"

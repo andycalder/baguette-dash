@@ -11,14 +11,33 @@
   width: 40px;
 }
 
+.navbar {
+  padding-top: 20px;
 
+}
 
-// header {
-//   height: 108vh;
-//   background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%),
-//     url("../../../imgages/1.png") no-repeat;
-//     background-size: cover;
-//     background-position: center center;
-//     position: relative;
-//     margin-top: 70px;
-// }
+hr {
+  width: 20px;
+  margin-top: 5px;
+}
+
+.dashboard-navbar {
+  color: #407B9D;
+  font-weight: bold;
+}
+
+.dashboard-navbar:hover {
+  text-decoration: none;
+  font-weight: bold;
+  color: #E2001A;
+}
+
+.sign-navbar {
+  font-weight: bold;
+  color:#000000 !important;
+}
+
+.sign-navbar:hover {
+  text-decoration: none;
+  color:#E2001A !important;
+}

@@ -1,0 +1,40 @@
+// header {
+//   height: 108vh;
+//   background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%),
+//     url("../../images/1.png") no-repeat;
+//     background-size: cover;
+//     background-position: center center;
+//     position: relative;
+//     margin-top: 70px;
+// }
+
+.banner {
+    height: 80vh;
+    background: url("baguette-dash") no-repeat;
+    // background-size: cover;
+    background-size: contain;
+    // background-position: center center;
+    background-position: left;
+    position: relative;
+}
+
+.banner h1 {
+    position: absolute;
+    position: fixed;
+    top: 30%;   /* Should be in px or % ? */
+    right: 10%;  /* Should be in px or % ? */
+    text-transform: uppercase;
+    text-align: right;
+    line-height: 1.6;
+    color: #407B9D;
+    font-weight: bold;
+}
+
+.banner .red {
+  color: #E2001A;
+}
+
+.banner .click {
+ // text-decoration: underline;
+ border-bottom: 5px solid #407B9D;
+}
