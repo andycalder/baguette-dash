@@ -43,13 +43,13 @@
   display: flex;
   justify-content: space-around;
   padding-top: 50px;
-
 }
 
 .card-category {
   background-size: cover;
   background-position: center;
-  width: 35%;
+  // width: 35%;
+  width: 350px;
   height: 180px;
   display: flex;
   justify-content: center;
@@ -74,4 +74,8 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-category h2:hover {
+  text-decoration: none;
 }
