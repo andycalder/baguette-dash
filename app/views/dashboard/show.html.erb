@@ -1,38 +1,37 @@
-<h1>Dashboard#show</h1>
+<div class="container-fluid pl-4 mb-5">
 
-<div class="row">
-  <div class="col-12">
-      <h1>All placed orders</h1>
-        <div class="row">
-          <% @orders.each do |order| %>
-            <div class="col-12 col-md-4 ">
-              <p><%= order.price %></p>
-              <p><%= order.status %></p>
-              <% if !order.user.nil? && !order.meal.nil? %>
-                <% user = order.user %>
-                <p><%= user.first_name %> <%= user.last_name %></p>
-                <% meal = order.meal%>
-                <ul>
-                  <li><%= meal.name %></li>
-                </ul>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
+<h1 class="my-5">Dashboard</h1>
 
-    <div class="col-12">
-      <h2>Created meals</h2><%= link_to "Create a new meal", new_meal_path , class: "d-inline-block"%>
+  <div class="row">
+
+    <div class="col-12 card-dashboard">
+      <h1>All of the orders</h1>
+      <div class="row">
+        <!-- Display orders info -->
+        <% @orders.each do |order| %>
+          <div class="col-4 card mx-3">
+            <p><%= order.price %></p>
+            <p><%= order.status %></p>
+            <p><%= order.user.first_name %> <%= order.user.last_name %></p>
+            <p><%= order.meal.name %></p>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="col-12 card-dashboard">
+      <h1>All of created meals</h1><%= link_to "Create a new meal", new_meal_path , class: "d-inline-block"%>
+
       <% @meals.each do |meal| %>
         <p><%= meal.name %></p>
         <p><%= meal.description %></p>
         <p><%= meal.price %></p>
-        <%= link_to "Edit meal", edit_meal_path(meal) %>
-        <%= link_to "Remove meal", meal_path(meal), method: :delete %>
+        <%= link_to "Edit meal", edit_meal_path(meal), class: "btn btn-primary" %>
+        <%= link_to "Remove meal", meal_path(meal), class: "btn btn-primary", method: :delete %>
       <% end %>
     </div>
 
-
-    <div class="col-12">
+    <div class="col-12 card-dashboard">
       <h2>All of pending orders</h2>
       <% @all_orders.each do |order| %>
         <% if  order.meal.user == current_user && order.status.downcase == 'pending'%>
@@ -40,11 +39,11 @@
           <p><%= order.price %></p>
           <% user = order.user %>
           <p><%= user.first_name %> <%= user.last_name %></p>
-          <%= link_to "See details", edit_order_path(order)  %>
+          <%= link_to "See details", edit_order_path(order), class: "btn btn-primary"  %>
           <%= link_to "Mark as delivered", order_path(order.id, order:{ status: 'delivered' } ), method: :patch, data: { confirm: "Mark #{order.meal.name} as delivered to #{order.user.first_name}?" } %>
           <%= link_to "Mark as cancelled", order_path(order.id, order:{ status: 'cancelled' } ), method: :patch, data: { confirm: "Are you sure you want to cancel #{order.meal.name} to #{order.user.first_name}?" } %>
       <% end%>
-    <% end%>
     </div>
+
   </div>
 </div>
