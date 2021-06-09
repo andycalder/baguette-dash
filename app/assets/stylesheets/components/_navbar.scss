@@ -16,11 +16,6 @@
 
 }
 
-hr {
-  width: 20px;
-  margin-top: 5px;
-}
-
 .dashboard-navbar {
   color: #407B9D;
   font-weight: bold;
@@ -40,4 +35,13 @@ hr {
 .sign-navbar:hover {
   text-decoration: none;
   color:#E2001A !important;
+}
+
+.logo {
+  width: 80px;
+  margin-right: 25px;
+}
+
+.logo:hover {
+  text-decoration: none;
 }
