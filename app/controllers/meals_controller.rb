@@ -3,7 +3,7 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
-    @meals = Meal.all
+    @meals = params[:query].present? ? Meal.search_by_name(params[:query]) : Meal.all
   end
 
   def show
