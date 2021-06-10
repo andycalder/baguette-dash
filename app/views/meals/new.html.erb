@@ -1,16 +1,21 @@
-<h1>Add a new meal to the menu</h1>
-
 <%= simple_form_for(@meal) do |f| %>
-  <%= f.error_notification %>
+<%= f.error_notification %>
+<div class="container">
+  <div class="row justify-content-center my-5">
+    <div class="col-12 col-md-6 shadow p-4">
+      <div class="form-inputs">
+        <h1>Add a new meal to the menu</h1>
+        <%= f.input :name, required: true, autofocus: true %>
+        <%= f.input :description, required: true %>
+        <%= f.input :price, required: true %>
+        <%= f.input :address, required: true %>
+        <%= f.input :photo, as: :file %>
+      </div>
 
-  <div class="form-inputs">
-    <%= f.input :name, required: true, autofocus: true %>
-    <%= f.input :description, required: true %>
-    <%= f.input :price, required: true %>
-    <%= f.input :photo, as: :file %>
+      <div class="form-actions mt-4">
+        <%= f.button :submit, "Add meal", class: "btn btn-block btn-lg btn-primary mt-3"%>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Add meal" %>
-  </div>
+</div>
 <% end %>

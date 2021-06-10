@@ -3,10 +3,18 @@ class MealsController < ApplicationController
   before_action :set_meal, only: [:show, :edit, :update, :destroy]
 
   def index
+    @results = params[:query].present? ? Meal.search_by_name(params[:query]) : Meal.all
     @meals = Meal.all
+    @markers = @meals.geocoded.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude
+      }
+    end
   end
 
   def show
+    @marker = { lat: @meal.latitude, lng: @meal.longitude } if @meal.latitude && @meal.longitude
   end
 
   def new
@@ -16,7 +24,6 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
-
     if @meal.save
       redirect_to dashboard_path
     else
@@ -49,6 +56,6 @@ class MealsController < ApplicationController
   end
 
   def meal_params
-    params.require(:meal).permit(:name, :description, :price, :photo)
+    params.require(:meal).permit(:name, :description, :price, :photo, :address)
   end
 end
