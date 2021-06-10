@@ -1,3 +1,16 @@
 // Import page-specific CSS files here.
 @import "home";
-@import "meal_show"
+@import "meal_show";
+
+#display_food {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+#map {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+

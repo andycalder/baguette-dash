@@ -12,9 +12,9 @@
 </div> -->
 
 
-<div class="container mt-2">
+<div class="container-fluid mt-2">
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6" id="display_food">
       <%@meals.each do |meal|  %>
       <div class="cards">
         <div class="card-category"
@@ -27,8 +27,9 @@
 
     <div class="col-12 col-md-6">
       <%# Using the map%>
-      <div id="map" class="my-4" style="width: 100%; height: 300px;" data-markers="<%= @markers.to_json %>"
-        <%# Javascript expected an array%> data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <div id="map" class="my-4" 
+      data-markers="<%= @markers.to_json %>"<%# Javascript expected an array%> 
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
     </div>
   </div>
