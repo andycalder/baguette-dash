@@ -11,16 +11,17 @@
 .banner {
     height: 80vh;
     background: url("baguette-dash") no-repeat;
+    // background-attachment: fixed;
     // background-size: cover;
     background-size: contain;
     // background-position: center center;
     background-position: left;
     position: relative;
+
 }
 
 .banner h1 {
     position: absolute;
-    position: fixed;
     top: 30%;   /* Should be in px or % ? */
     right: 10%;  /* Should be in px or % ? */
     text-transform: uppercase;
@@ -28,6 +29,7 @@
     line-height: 1.6;
     color: #407B9D;
     font-weight: bold;
+    // position: fixed;
 }
 
 .banner .red {

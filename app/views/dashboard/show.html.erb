@@ -4,8 +4,8 @@
 
   <div class="row">
 
-    <div class="col-12 card-dashboard">
-      <h1>All of the orders</h1>
+    <div class="col-md-8 card-dashboard">
+      <h2>All of the orders</h2>
       <div class="row">
         <!-- Display orders info -->
         <% @orders.each do |order| %>
@@ -19,8 +19,9 @@
       </div>
     </div>
 
-    <div class="col-12 card-dashboard">
-      <h1>All of created meals</h1><%= link_to "Create a new meal", new_meal_path , class: "d-inline-block"%>
+    <div class="col-md-8 card-dashboard">
+      <h2>All of created meals</h2>
+      <%= link_to "Create a new meal", new_meal_path , class: "d-inline-block"%>
 
       <% @meals.each do |meal| %>
         <p><%= meal.name %></p>
@@ -31,7 +32,7 @@
       <% end %>
     </div>
 
-    <div class="col-12 card-dashboard">
+    <div class="col-md-8 card-dashboard">
       <h2>All of pending orders</h2>
       <% @all_orders.each do |order| %>
         <% if  order.meal.user == current_user && order.status.downcase == 'pending'%>
