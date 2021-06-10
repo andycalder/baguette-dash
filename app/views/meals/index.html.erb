@@ -24,13 +24,23 @@
 
 <div class="container mt-2">
   <div class="row cards">
-    <%@meals.each do |meal|  %>
+    <%@results.each do |result|  %>
       <div class="col-md-6 col-12 col-lg-4 my-2">
-        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= meal.photo.attached? ? cl_image_path(meal.photo.key) : image_path('baguettes') %>)">
-        <%= link_to meal.name, meal_path(meal), class: "card-category" %>
+        <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= result.photo.attached? ? cl_image_path(result.photo.key) : image_path('baguettes') %>)">
+        <%= link_to result.name, meal_path(result), class: "card-category" %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+
+<%# Using the map%>
+<div id="map"
+class = "my-4"
+style="width: 100%; height: 300px;"
+data-markers="<%= @markers.to_json %>" <%# Javascript expected an array%> 
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
 
