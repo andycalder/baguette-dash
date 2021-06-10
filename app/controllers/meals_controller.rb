@@ -8,7 +8,9 @@ class MealsController < ApplicationController
     @markers = @meals.geocoded.map do |meal|
       {
         lat: meal.latitude,
-        lng: meal.longitude
+        lng: meal.longitude,
+        ref: meal.id,
+        image_url: helpers.asset_url('baguettes')
       }
     end
   end

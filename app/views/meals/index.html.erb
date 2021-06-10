@@ -14,9 +14,9 @@
 
 <div class="container-fluid mt-2">
   <div class="row">
-    <div class="col-12 col-md-6" id="display_food">
+    <div class="col-12 col-md-6">
       <%@meals.each do |meal|  %>
-      <div class="cards">
+      <div class="cards" data-meal-id="<%=meal.id%>" id="display_food">
         <div class="card-category"
           style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= meal.photo.attached? ? cl_image_path(meal.photo.key) : image_path('baguettes') %>)">
           <%= link_to meal.name, meal_path(meal), class: "card-category" %>

@@ -29,9 +29,14 @@ import "bootstrap";
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
 
+// import cards_init
+import { manipulateCard } from '../components/init_cards';
+
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initMapbox();
+  manipulateCard();
 });
 
