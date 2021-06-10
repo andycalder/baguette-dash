@@ -1,11 +1,13 @@
 .btn-light {
   color: #ffffff;
-  padding: 10px 15px;
   font-weight: bold;
-  margin-right: 20px;
-  margin-bottom: 30px;
   background-color: #407B9D;
   border-radius: 5px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+  border-radius:15px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .btn-delete, .btn-edit {
