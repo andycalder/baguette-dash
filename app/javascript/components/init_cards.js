@@ -1,6 +1,4 @@
-const checkEvent = () => {
 
-}
 
 const manipulateCard = () => {
   const cards = document.querySelectorAll('#display_food');
@@ -11,10 +9,8 @@ const manipulateCard = () => {
   cards.forEach(card => card.addEventListener('mouseover', (event) => {
     const mealId = event.currentTarget.dataset.mealId;
     const marker = document.querySelector(`[data-id="${mealId}"]`);
-    
-    // debugger
-    Mark
-    marker.style.width = '50px';
+    marker.style.width = '150px';
+    marker.style.height = '150px';
   })
   )
 }

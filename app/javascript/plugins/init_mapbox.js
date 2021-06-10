@@ -8,13 +8,11 @@ const fitMapToMarkers = (map, markers) => {
 };
 
 const initMapbox = () => {
-  const mapElement = document.getElementById('map');
-
+  const mapElement = document.getElementById('map')
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 
     const map = new mapboxgl.Map({
-      
       container: 'map',
       style: 'mapbox://styles/hongleang/ckpqfurq90eix17p7vwx5rklh'
     });
@@ -31,7 +29,7 @@ const initMapbox = () => {
       element.style.height = '25px';
       element.setAttribute('data-id', marker.ref)
 
-      new mapboxgl.Marker(element)
+      new mapboxgl.Marker()
         .setLngLat([ marker.lng, marker.lat ])
         .setPopup(popup)
         .addTo(map);

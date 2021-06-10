@@ -1,6 +1,6 @@
 <div class="container mt-2">
   <div class="row">
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6 overflow-auto" id="container-left">
       <%= form_tag meals_path, method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -19,7 +19,7 @@
       <% end %>
     </div>
 
-    <div class="col-12 col-md-6">
+    <div class="col-12 col-md-6" id="container-right">
       <%# Using the map%>
       <div id="map" class="my-4" 
       data-markers="<%= @markers.to_json %>"<%# Javascript expected an array%> 
@@ -27,3 +27,5 @@
       </div>
     </div>
   </div>
+</div>
+  
