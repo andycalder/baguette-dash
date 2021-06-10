@@ -1,0 +1,64 @@
+.btn-light {
+  color: #ffffff;
+  padding: 10px 15px;
+  font-weight: bold;
+  margin-right: 20px;
+  margin-bottom: 30px;
+  background-color: #407B9D;
+  border-radius: 5px;
+}
+
+.btn-delete, .btn-edit {
+  margin-bottom: 50px;
+}
+
+.btn-edit {
+  background-color: #A5D2E5;
+  border: none;
+}
+
+.btn-delete {
+  background-color: #E2001A;
+  border: none;
+}
+
+.btn-edit:hover, .btn-details:hover {
+  background-color: #A5D2E5;
+  font-weight: bold;
+}
+
+.btn-delete:hover, .btn-cancel:hover {
+  background-color: #E2001A;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.btn-details {
+  margin-bottom: 50px;
+  background-color: #A5D2E5;
+  border: none;
+
+}
+
+.btn-cancel {
+  background-color: #E2001A;
+  border: none;
+  margin-bottom: 50px;
+  color: #ffffff;
+}
+
+.btn-delivered {
+  background-color: #407B9D;
+  border: none;
+  margin-bottom: 50px;
+  color: #ffffff
+}
+
+.btn-delivered:hover {
+  font-weight: bold;
+  background-color: #407B9D;
+  color: #ffffff;
+}
+
+
+
