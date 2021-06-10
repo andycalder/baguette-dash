@@ -25,3 +25,13 @@
   </div>
 </div>
 
+
+<%# Using the map%>
+<div id="map"
+class = "my-4"
+style="width: 100%; height: 300px;"
+data-markers="<%= @markers.to_json %>" <%# Javascript expected an array%> 
+data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+

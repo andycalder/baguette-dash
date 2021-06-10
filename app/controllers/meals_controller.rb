@@ -4,9 +4,16 @@ class MealsController < ApplicationController
 
   def index
     @meals = Meal.all
+    @markers = @meals.geocoded.map do |meal|
+      {
+        lat: meal.latitude,
+        lng: meal.longitude
+      }
+    end
   end
 
   def show
+    @marker = { lat: @meal.latitude, lng: @meal.longitude } if @meal.latitude && @meal.longitude
   end
 
   def new
