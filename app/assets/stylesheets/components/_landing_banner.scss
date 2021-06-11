@@ -20,10 +20,8 @@
       &:focus {outline:0;}
     }
 
-    .blue-button {
-      background-color: #407B9D;
-      color: white;
-      font-weight: bold;
+    .btn-delivered {
+      margin-bottom: 2px;
     }
 
     input[type="submit"] {
@@ -62,4 +60,12 @@
   display: flex;
   flex-direction: column;
   text-align: center;
+}
+
+.blue {
+  color: #407B9D;
+}
+
+.red {
+  color: #E2001A;
 }
