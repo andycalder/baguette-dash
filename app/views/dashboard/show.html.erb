@@ -1,7 +1,5 @@
 <div class="dashboard-container">
 
-
-
   <h1 class="my-5 dashboard">Dashb<span class="o">o</span>ard</h1>
 
 
@@ -39,8 +37,7 @@
             </div>
           </div>
           <% end %>
-          </div>
-  </div>
+      </div>
 
   <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
     <% @meals.each do |meal| %>
@@ -67,25 +64,25 @@
 
   <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
     <% @all_orders.each do |order| %>
-     <div class="created-meal">
-      <div class="block-left">
-          <%= image_tag "baguette-dash", class: "logo-footer" %>
-          <div class="block-1">
-            <div class="block-2">
-        <% if  order.meal.user == current_user && order.status.downcase == 'pending'%>
-          <p class="name"><%= order.meal.name %></p>
-          <p class="price"> &#36; <%= order.price %></p>
-        </div>
+      <% if  order.meal.user == current_user && order.status.downcase == 'pending'%>
           <% user = order.user %>
-          <p class="description"><%= user.first_name %> <%= user.last_name %></p>
-        </div>
-      </div>
+        <div class="created-meal">
+          <div class="block-left">
+            <%= image_tag "baguette-dash", class: "logo-footer" %>
+            <div class="block-1">
+              <div class="block-2">
+                <p class="name"><%= order.meal.name %></p>
+                <p class="price"> &#36; <%= order.price %></p>
+              </div>
+            <p class="description"><%= user.first_name %> <%= user.last_name %></p>
+            </div>
+         </div>
       <div class="block-buttons">
-          <%= link_to "Mark as delivered", order_path(order.id, order:{ status: 'delivered' } ), method: :patch, data: { confirm: "Mark #{order.meal.name} as delivered to #{order.user.first_name}?" }, class: "d-inline-block btn btn-delivered" %>
-          <%= link_to "Mark as cancelled", order_path(order.id, order:{ status: 'cancelled' } ), method: :patch, data: { confirm: "Are you sure you want to cancel #{order.meal.name} to #{order.user.first_name}?" }, class: "d-inline-block btn btn-cancel" %>
+          <%= link_to "Delivered", order_path(order.id, order:{ status: 'delivered' } ), method: :patch, data: { confirm: "Mark #{order.meal.name} as delivered to #{order.user.first_name}?" }, class: "d-inline-block btn btn-delivered" %>
+          <%= link_to "Cancelled", order_path(order.id, order:{ status: 'cancelled' } ), method: :patch, data: { confirm: "Are you sure you want to cancel #{order.meal.name} to #{order.user.first_name}?" }, class: "d-inline-block btn btn-cancel" %>
+        </div>
+        </div>
         <% end%>
-        </div>
-        </div>
       <% end%>
   </div>
 </div>
