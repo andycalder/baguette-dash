@@ -7,9 +7,10 @@ const fitMapToMarkers = (map, markers) => {
   map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
 };
 
-const initMapbox = () => {
-  const mapElement = document.getElementById('map');
 
+
+const initMapbox = () => {
+  const mapElement = document.getElementById('map')
   if (mapElement) {
     mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
 

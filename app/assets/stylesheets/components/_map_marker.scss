@@ -1,0 +1,24 @@
+// Styling marker
+// .marker {
+//   background-image: url("../../images/baguettes.jpeg");
+//   width: 150px;
+//   height: 150px;
+//   cursor: pointer;
+// }
+
+// Animation class
+.marker {
+  transition: all .2s ease-in-out;
+}
+
+.scale-up-center {
+  transform: scale(1.1);
+}
+
+.animate {
+  transition: all .2s ease-in-out;
+}
+
+.animate:hover {
+  transform: scale(1.3);
+}
