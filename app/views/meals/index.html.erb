@@ -10,13 +10,13 @@
         %>
         <%= submit_tag "Search", class: "btn btn-primary" %>
       <% end %>
-      <%@results.each do |result|  %>
-      <div class="cards">
-        <div class="card-category"
-          style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= result.photo.attached? ? cl_image_path(result.photo.key) : image_path('baguettes') %>)">
-          <%= link_to result.name, meal_path(result), class: "card-category" %>
+      <% @results.each do |result|  %>
+        <div class="cards">
+          <div class="card-category"
+            style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= result.photo.attached? ? cl_image_path(result.photo.key) : image_path('baguettes') %>)">
+            <%= link_to result.name, meal_path(result), class: "card-category" %>
+          </div>
         </div>
-      </div>
       <% end %>
     </div>
 
@@ -27,3 +27,4 @@
       </div>
     </div>
   </div>
+</div>
