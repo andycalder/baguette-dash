@@ -17,16 +17,16 @@
       <%#End %>
       <%#Cards%>
       <%@results.each do |result|  %>
-      <div id="display-card" data-id="<%=result.id%>" data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+      <div id="display-card" data-id="<%=result.id%>">
         <%if result.photo.attached? %>
         <%= cl_image_tag result.photo.key , class: "img-fluid"%>
         <% else %>
         <%= image_tag("baguettes" , class: "card-img")%>
         <% end %>
-        <div class="display-card-infos">
+        <div class="card-infos">
           <%= link_to result.name, meal_path(result), class: "h1 text-secondary" %>
-          <p><%= result.description %></p>
-          <p><%= result.price %></p>
+          <p class="result-description"><%= result.description %></p>
+          <p class="result-price bg-success p-4"><%= result.price %></p>
         </div>
       </div>
       <% end %>
