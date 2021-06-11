@@ -19,9 +19,9 @@
       <%@results.each do |result|  %>
       <div id="display-card" data-id="<%=result.id%>">
         <%if result.photo.attached? %>
-        <%= cl_image_tag result.photo.key , class: "img-fluid"%>
+          <%= cl_image_tag result.photo.key , class: "card-img"%>
         <% else %>
-        <%= image_tag("baguettes" , class: "card-img")%>
+          <%= image_tag("baguettes" , class: "card-img")%>
         <% end %>
         <div class="card-infos">
           <%= link_to result.name, meal_path(result), class: "h1 text-secondary" %>
