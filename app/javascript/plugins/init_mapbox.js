@@ -4,7 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css';
 const fitMapToMarkers = (map, markers) => {
   const bounds = new mapboxgl.LngLatBounds();
   markers.forEach(marker => bounds.extend([ marker.lng, marker.lat ]));
-  map.fitBounds(bounds, { padding: 70, maxZoom: 12, duration: 0 });
+  map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
 };
 
 
@@ -16,30 +16,51 @@ const initMapbox = () => {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      // add new custom style
       style: 'mapbox://styles/hongleang/ckpqfurq90eix17p7vwx5rklh'
     });
-    
+
     const markers = JSON.parse(mapElement.dataset.markers);
 
     markers.forEach((marker) => {
-      // const popup = new mapboxgl.Popup().setHTML(marker.info_window);
+      let icon = document.createElement('div');
+      icon.innerHTML = '🥖';
+      icon.classList.add('map-icon');
 
-      // create a custom Marker
-      const element = document.createElement('div');
-      element.className = 'marker';
-      element.style.backgroundImage = `url('${marker.image_url}')`;
-      element.style.backgroundSize = 'contain';
-      element.style.width = '35px';
-      element.style.height = '35px';
-      element.setAttribute('data-marker-id', marker.ref)
-
-      new mapboxgl.Marker()
+      new mapboxgl.Marker({ element: icon })
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
     });
-    fitMapToMarkers(map, markers)
+
+    fitMapToMarkers(map, markers);
+    addUserIcon(map);
   }
 };
+
+const addUserIcon = (map) => {
+  const success = (position) => {
+    const pos = [position.coords.longitude, position.coords.latitude];
+
+    let icon = document.createElement('div');
+    icon.innerHTML = '🙋‍♂️';
+    icon.classList.add('map-icon');
+
+    new mapboxgl.Marker({ element: icon })
+        .setLngLat(pos)
+        .addTo(map);
+
+    const bounds = map.getBounds().extend(pos);
+    map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
+  }
+
+  const error = () => {
+    console.log('Unable to locate user');
+  }
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(success, error);
+  } else {
+    error();
+  }
+}
 
 export { initMapbox };

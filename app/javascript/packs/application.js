@@ -29,6 +29,7 @@ import AOS from 'aos'; // import AOS
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { initMapbox } from '../plugins/init_mapbox';
+import { initAutocomplete } from '../plugins/init_autocomplete';
 
 // import cards_init
 import { attachCardToMarker } from '../components/init_cards';
@@ -39,12 +40,10 @@ document.addEventListener('turbolinks:load', () => {
   // initSelect2();
   initMapbox();
   attachCardToMarker();
+  initAutocomplete();
 
   // animate on scroll script
   AOS.init({
     duration: 1000
   });
 });
-
-
-import "controllers"

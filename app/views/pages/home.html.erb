@@ -1,14 +1,14 @@
-<div class="landing-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1567752588693-ad10a647c5a3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1900&q=80');">
+<div class="landing-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1604908464937-12bf0fa8d4b6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');">
   <div class="container-banner">
       <h1>Order your favorite<br>
-    <span class="red">French Meals</span> in <span class="click">one click!</span></h1>
+    <span class="blue">Fr</span>en<span class="red">ch</span> Meals in <span class="click">one click!</span></h1>
     <%= form_tag meals_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find a meal"
       %>
-      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <%= submit_tag "Search", class: "btn btn-delivered" %>
     <% end %>
     <%= link_to 'Check all meals!', meals_path %>
   </div>

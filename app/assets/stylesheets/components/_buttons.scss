@@ -3,20 +3,19 @@
   font-weight: bold;
   background-color: #407B9D;
   border-radius: 5px;
-  // margin-left: 10px;
-  // margin-right: 10px;
   border-radius:15px !important;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 .btn-delete, .btn-edit {
-  margin-bottom: 50px;
+  border-radius:15px !important;
 }
 
 .btn-edit {
   background-color: #A5D2E5;
   border: none;
+  color: #808080;
 }
 
 .btn-delete {
@@ -35,25 +34,19 @@
   color: #ffffff;
 }
 
-.btn-details {
-  margin-bottom: 50px;
-  background-color: #A5D2E5;
-  border: none;
-
-}
-
 .btn-cancel {
   background-color: #E2001A;
   border: none;
-  margin-bottom: 50px;
   color: #ffffff;
+  border-radius:15px !important;
 }
 
 .btn-delivered {
   background-color: #407B9D;
   border: none;
-  margin-bottom: 50px;
-  color: #ffffff
+  color: #ffffff;
+  border-radius:15px !important;
+  margin-right: 5px;
 }
 
 .btn-delivered:hover {
@@ -62,5 +55,36 @@
   color: #ffffff;
 }
 
+.btn-meal {
+  color: #ffffff;
+  background-color: #407B9D;
+  border-radius:15px !important;
+  border: none;
+}
 
+.btn-meal:hover {
+  border: 1px solid #407B9D;
+}
+
+.bg-success {
+  background-color:#A5D2E5 !important;
+}
+
+.btn-success {
+  background-color:#407B9D !important;
+  color: #ffffff;
+  border-radius:15px !important;
+  border:none !important;
+  margin-right: 10px;
+}
+
+.btn-secondary {
+  border-radius:15px !important;
+  border:none !important;
+}
+
+.btn-secondary:hover, .btn-success:hover {
+  font-weight:bold !important;
+  border:none !important;
+}
 

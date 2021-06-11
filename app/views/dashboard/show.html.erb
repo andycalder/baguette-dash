@@ -1,73 +1,88 @@
-<div class="container-fluid dashboard-container">
+<div class="dashboard-container">
 
   <h1 class="my-5 dashboard">Dashb<span class="o">o</span>ard</h1>
 
-  <nav>
 
-    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-      <li class="nav-item">
-        <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
-          aria-controls="pills-home" aria-selected="true">My orders 🥖</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
-          aria-controls="pills-profile" aria-selected="false">Created meals 🍽</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab"
-          aria-controls="pills-contact" aria-selected="false">Pending orders 🕚</a>
-      </li>
-      <li class="nav-item justify-content-end ml-auto">
-        <%= link_to "Create a new meal", new_meal_path , class: "d-inline-block btn btn-light create"%>
-      </li>
-    </ul>
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active item" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-        <% @orders.each do |order| %>
-        <div class="col-4 card mx-3 tab-1">
-          <p class="">💸 <%= order.price %> &#36;</p>
-          <p class="">🕚 <%= order.status %></p>
-          <p class="">🙋‍♂️ <%= order.user.first_name %> <%= order.user.last_name %></p>
-          <p class="">🍽 <%= order.meal.name %></p>
-        </div>
-        <% end %>
-      </div>
-      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">My orders 🥖</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Created meals 🍽</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Pending orders 🕚</a>
+    </li>
+    <li class="nav-item justify-content-end ml-auto">
+      <%= link_to "Create a new meal", new_meal_path , class: "d-inline-block btn btn-light create"%>
+    </li>
+  </ul>
 
-        <% @meals.each do |meal| %>
-        <!-- everything in here -->
-        <div class="created-meal">
-          <div class="block-left">
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active item" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+      <% @orders.each do |order| %>
+      <div class="created-meal">
+        <div class="block-left">
             <%= image_tag "baguette-dash", class: "logo-footer" %>
             <div class="block-1">
               <div class="block-2">
-                <p class="name"><%= meal.name %></p>
-                <p class="price"><%= meal.price %> &#36;</p>
-              </div>
-
-              <p class="description"><%= meal.description %></p>
+                <p class="name"><%= order.meal.name %></p>
+              <p class="price"> &#36; <%= order.price %></p>
+            </div>
+              <p class="description"><%= order.user.first_name %> <%= order.user.last_name %></p>
             </div>
           </div>
           <div class="block-buttons">
-            <%= link_to "Edit meal", edit_meal_path(meal), class: "btn btn-primary btn-edit" %>
-            <%= link_to "Remove meal", meal_path(meal), class: "btn btn-primary btn-delete", method: :delete %>
+              <p class="status"><%= order.status %></p>
+            </div>
           </div>
-        </div>
-        <% end %>
+          <% end %>
+  </div>
 
+  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+    <% @meals.each do |meal| %>
+      <!-- everything in here -->
+      <div class="created-meal">
+        <div class="block-left">
+          <%= image_tag "baguette-dash", class: "logo-footer" %>
+          <div class="block-1">
+            <div class="block-2">
+              <p class="name"><%= meal.name %></p>
+              <p class="price"> &#36; <%= meal.price %></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="block-buttons">
+          <%= link_to "Edit meal", edit_meal_path(meal), class: "btn btn-primary btn-edit" %>
+          <%= link_to "Remove meal", meal_path(meal), class: "btn btn-primary btn-delete", method: :delete %>
+        </div>
       </div>
-      <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-        <% @all_orders.each do |order| %>
+    <% end %>
+  </div>
+
+  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+    <% @all_orders.each do |order| %>
+     <div class="created-meal">
+      <div class="block-left">
+          <%= image_tag "baguette-dash", class: "logo-footer" %>
+          <div class="block-1">
+            <div class="block-2">
         <% if  order.meal.user == current_user && order.status.downcase == 'pending'%>
-        <p class="">🍽 <%= order.meal.name %></p>
-        <p class="">💸 <%= order.price %> &#36;</p>
-        <% user = order.user %>
-        <p class="">🙋‍♂️ <%= user.first_name %> <%= user.last_name %></p>
-        <%= link_to "See details", edit_order_path(order), class: "btn btn-primary btn-details"  %>
-        <%= link_to "Mark as delivered", order_path(order.id, order:{ status: 'delivered' } ), method: :patch, data: { confirm: "Mark #{order.meal.name} as delivered to #{order.user.first_name}?" }, class: "d-inline-block btn btn-delivered" %>
-        <%= link_to "Mark as cancelled", order_path(order.id, order:{ status: 'cancelled' } ), method: :patch, data: { confirm: "Are you sure you want to cancel #{order.meal.name} to #{order.user.first_name}?" }, class: "d-inline-block btn btn-cancel" %>
-        <% end%>
-        <% end%>
+          <p class="name"><%= order.meal.name %></p>
+          <p class="price"> &#36; <%= order.price %></p>
+        </div>
+          <% user = order.user %>
+          <p class="description"><%= user.first_name %> <%= user.last_name %></p>
+        </div>
       </div>
-    </div>
+      <div class="block-buttons">
+          <%= link_to "Mark as delivered", order_path(order.id, order:{ status: 'delivered' } ), method: :patch, data: { confirm: "Mark #{order.meal.name} as delivered to #{order.user.first_name}?" }, class: "d-inline-block btn btn-delivered" %>
+          <%= link_to "Mark as cancelled", order_path(order.id, order:{ status: 'cancelled' } ), method: :patch, data: { confirm: "Are you sure you want to cancel #{order.meal.name} to #{order.user.first_name}?" }, class: "d-inline-block btn btn-cancel" %>
+        <% end%>
+        </div>
+        </div>
+      <% end%>
+  </div>
+</div>
 </div>
