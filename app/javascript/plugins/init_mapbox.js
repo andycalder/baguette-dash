@@ -15,46 +15,37 @@ const initMapbox = () => {
 
     const map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/mapbox/streets-v10'
+      style: 'mapbox://styles/hongleang/ckpqfurq90eix17p7vwx5rklh'
     });
-    
+
     const markers = JSON.parse(mapElement.dataset.markers);
+
     markers.forEach((marker) => {
-      new mapboxgl.Marker()
+      let icon = document.createElement('div');
+      icon.innerHTML = '🥖';
+      icon.classList.add('map-icon');
+
+      new mapboxgl.Marker({ element: icon })
         .setLngLat([ marker.lng, marker.lat ])
         .addTo(map);
     });
+
     fitMapToMarkers(map, markers);
-    locateUser(map);
+    addUserIcon(map);
   }
 };
 
-const locateUser = (map) => {
+const addUserIcon = (map) => {
   const success = (position) => {
     const pos = [position.coords.longitude, position.coords.latitude];
 
-    let userIcon = document.createElement('div');
-    userIcon.innerHTML = '🙋‍♂️';
-    userIcon.classList.add('mapIcon');
+    let icon = document.createElement('div');
+    icon.innerHTML = '🙋‍♂️';
+    icon.classList.add('map-icon');
 
-    // userIcon.style.width = '50px';
-    // userIcon.style.height = '50px';
-    // userIcon.style.fontSize = '30px';
-    // userIcon.style.lineHeight = '50px';
-    // userIcon.style.textAlign = 'center';
-    // userIcon.style.borderRadius = '25px';
-    // userIcon.style.backgroundColor = 'lightblue';
-    // userIcon.style.boxShadow = '10px black';
-    // userIcon.style.width = '50px';
-    // userIcon.innerHTML = '🙋‍♂️';
-
-    // const userIcon = document.createElement('div');
-    // userIcon.innerHTML = '🥖';
-
-    new mapboxgl.Marker({ element: userIcon })
+    new mapboxgl.Marker({ element: icon })
         .setLngLat(pos)
         .addTo(map);
-
 
     const bounds = map.getBounds().extend(pos);
     map.fitBounds(bounds, { padding: 70, maxZoom: 17, duration: 0 });
