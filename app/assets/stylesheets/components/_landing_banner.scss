@@ -1,0 +1,65 @@
+.landing-banner {
+  background-size: cover;
+  background-position: center;
+  padding: 150px 0;
+  height: 100vh;
+  width: 100%;
+
+  form {
+    display: flex;
+    max-width: 400px;
+    padding: 5px;
+    background: white;
+    border-radius: 10px;
+    font-family: 'Rubik', sans-serif;
+
+    input[type="text"] {
+      background: transparent;
+      border: none;
+
+      &:focus {outline:0;}
+    }
+
+    .blue-button {
+      background-color: #407B9D;
+      color: white;
+      font-weight: bold;
+    }
+
+    input[type="submit"] {
+      border-radius: 6px;
+    }
+  }
+}
+
+.landing-banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+  font-family: 'Rubik', sans-serif;
+}
+
+.landing-banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: 'Rubik', sans-serif;
+}
+
+.landing-banner a {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: 'Rubik', sans-serif;
+  color: white;
+}
+
+.container-banner {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}

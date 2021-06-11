@@ -1,20 +1,24 @@
 .btn-light {
   color: #ffffff;
-  padding: 10px 15px;
   font-weight: bold;
-  margin-right: 20px;
-  margin-bottom: 30px;
   background-color: #407B9D;
   border-radius: 5px;
+  // margin-left: 10px;
+  // margin-right: 10px;
+  border-radius:15px !important;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .btn-delete, .btn-edit {
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
+  border-radius:15px !important;
 }
 
 .btn-edit {
   background-color: #A5D2E5;
   border: none;
+  color: #808080;
 }
 
 .btn-delete {
@@ -37,21 +41,24 @@
   margin-bottom: 50px;
   background-color: #A5D2E5;
   border: none;
-
+  border-radius:15px !important;
 }
 
 .btn-cancel {
   background-color: #E2001A;
   border: none;
-  margin-bottom: 50px;
+  // margin-bottom: 50px;
   color: #ffffff;
+  border-radius:15px !important;
 }
 
 .btn-delivered {
   background-color: #407B9D;
   border: none;
-  margin-bottom: 50px;
-  color: #ffffff
+  // margin-bottom: 50px;
+  color: #ffffff;
+  border-radius:15px !important;
+  margin-right: 5px;
 }
 
 .btn-delivered:hover {
