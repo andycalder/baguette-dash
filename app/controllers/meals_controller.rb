@@ -10,7 +10,7 @@ class MealsController < ApplicationController
         lat: meal.latitude,
         lng: meal.longitude,
         ref: meal.id,
-        image_url: helpers.asset_url('baguettes')
+        image_url: helpers.asset_url('location-marker')
       }
     end
   end

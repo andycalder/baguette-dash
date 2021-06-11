@@ -2,11 +2,72 @@
 @import "home";
 @import "meal_show";
 
-#display_food {
-  height: 100vh;
-  overflow-y: scroll;
+
+#container-left {
+
+  #search-form {
+    width: 100%;
+    margin-bottom: 50px;
+    padding: 1rem;
+    border: none;
+  }
+
+  #input-field {
+    height: 75px;
+    flex-grow: 1;
+    border: none;
+    margin-right: .75rem;
+  }
+
+  #button-search {
+    padding: 50px;
+  }
+
+  // Styling cards
+  #display-card {
+    height: 200px;
+    background: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+
+    .card-img {
+      height: 100%;
+      width: 200px;
+      object-fit: cover;
+    }
+
+    h2 {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 1.4;
+      opacity: .7;
+      margin-bottom: 0;
+      margin-top: 8px;
+    }
+
+    .card-infos {
+      margin-left: 20px;
+      padding: 16px;
+    }
+
+    &:last-child {
+      margin-bottom: 10px;
+    }
+  }
 }
 
 
-
-
+// Setting map width and height
+#map {
+  position: sticky;
+  top: 0px;
+  width: 100%;
+  height: 80vh;
+}
